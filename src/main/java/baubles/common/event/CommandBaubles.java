@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
 public class CommandBaubles {
     public static void register(CommandDispatcher<CommandSource> dispatcher) {
         dispatcher.register(Commands.literal("baubles")
-        .requires(s -> s.hasPermissionLevel(4))
+        .requires(s -> s.hasPermissionLevel(ServerLifecycleHooks.getCurrentServer().getOpPermissionLevel()))
         .then(Commands.literal("clear")
                 .then(Commands.argument("player", EntityArgument.player())
                         .then(Commands.argument("slot", IntegerArgumentType.integer(0, 6))
